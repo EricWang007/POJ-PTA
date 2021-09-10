@@ -1,3 +1,5 @@
+//与1018对比，本题局部最优->全局最优，故可以用djkstra
+
 #include <iostream>
 #include <algorithm>
 
