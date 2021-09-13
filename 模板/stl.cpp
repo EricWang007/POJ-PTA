@@ -93,6 +93,9 @@ void try_vector() {
     vector<int> b;
     b.push_back(1);
     b.push_back(2);
+    b.pop_back();
+    printf("%d\n", b.size());
+    b.erase(b.begin());
     printf("%d\n", b.size());
 }
 
