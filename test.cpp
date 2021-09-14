@@ -1,21 +1,13 @@
-#include <map>
-#include <string>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cstring>
+#include<bits/stdc++.h>
 using namespace std;
 
 int a[100];
 char b[100];
 
 int main(){
-    int id;
-    string name;
-    scanf("%d", &id);
-    // getchar();
-    getline(cin, name); // 读入一行
-    cout << id << name;
+    fill(a, a+5,104);
+    for (int i = 0; i < 5; i++)
+        printf("%d\n", a[i]);
 
     return 0;
 }

@@ -4,6 +4,7 @@
         "random": "cpp",
         "cstring": "cpp",
         "type_traits": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "map": "cpp"
     }
 }
