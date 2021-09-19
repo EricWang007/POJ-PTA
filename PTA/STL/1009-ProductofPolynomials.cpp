@@ -21,12 +21,9 @@ int main(){
         while (i != A.end()) {
             int sum = i->first + ex;
             double mul = i->second * co;
-            if (out.count(sum)) {
-                double tmp = out[sum] + mul; 
-                if (tmp < 0.000001)
-                    out.erase(sum);
-                else out[sum] = tmp;
-            } else out[sum] = mul;
+            out[sum] += mul; 
+            if (out[sum] == 0)
+                out.erase(sum);
             i++;
         }
     }
