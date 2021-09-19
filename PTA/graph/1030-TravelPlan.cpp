@@ -21,7 +21,7 @@ int dis[501];
 int cos[501];
 int last[501];
 
-void dfs(int v) {
+void dfs(int v) { // djkstra
     vis[v] = true;
     last[v] = -1;
     for (int i = 0; i < n; i++) {
