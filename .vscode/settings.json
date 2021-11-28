@@ -3,7 +3,7 @@
         "bitset": "cpp",
         "functional": "cpp",
         "locale": "cpp",
-        "memory": "cpp",11
+        "memory": "cpp",
         "optional": "cpp",
         "system_error": "cpp",
         "thread": "cpp",
