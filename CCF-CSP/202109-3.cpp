@@ -35,7 +35,6 @@ int main () {
         int rn;
         double v, u, a, b, c, d;
         scanf("%d %lf %lf %lf %lf %lf %lf", &rn, &v, &u, &a, &b, &c, &d);
-        // cin >> rn >> v >> u >> a >> b >> c >> d;
         for (int i = 0; i < rn; i++)
             neurals[cnt+i] = {v, u, a, b, c, d};
         cnt += rn;
@@ -44,7 +43,6 @@ int main () {
         scanf("%d", &r[i]);
     for (int i = 0; i < S; i++) {
         scanf("%d %d %lf %d", &tuchus[i].s, &tuchus[i].t, &tuchus[i].w, &tuchus[i].D);
-        // cin >> tuchus[i].s >> tuchus[i].t >> tuchus[i].w >> tuchus[i].D;
         s2tuchu[tuchus[i].s].push_back(i);
         maxd = max(maxd, tuchus[i].D);
     }
@@ -71,7 +69,6 @@ int main () {
                 for (auto& m : s2tuchu[k]) 
                     Ik[(i+tuchus[m].D)%(maxd+1)][tuchus[m].t] += tuchus[m].w;
             }
-            // printf("%.3lf\n",neurals[k].v);
         }
     }
     double Min = 100000000, Max = -100000000;

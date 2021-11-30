@@ -16,7 +16,9 @@ bool cdp[12][2000]; //压缩dp
 int road;
 int N, M, K;
 
-int dfs(int kind, int root, int pre) { //计算以root为根的子树中，访问所有kind类节点的时间
+int dfs(int kind, int root, int pre) { 
+// 计算以root为根的子树中，访问所有kind类节点的时间
+// 同时计算最长的一条路径
     int longest = 0;
     for (auto& it : edges[root]) {
         int nxt = it.nxt, val = it.val;

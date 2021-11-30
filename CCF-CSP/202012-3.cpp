@@ -92,32 +92,30 @@ int main() {
                     cur = child_folder[cur][res[i]];  
                 }   
             }
+            if (flag) {
+                rollback(newfolder_1, newfolder_2); 
+                cout << 'N' << endl;
+                continue;
+            }
             if (folders[cur].total_limit != INF)
                 minitotalpace = min(minitotalpace, folders[cur].total_limit-folders[cur].total_size);
             if (folders[cur].child_limit != INF)
                 minichildspace = min(minichildspace, folders[cur].child_limit-folders[cur].child_size);
-            if (flag) {
-                rollback(newfolder_1, newfolder_2); 
-                cout << 'N' << endl;
-            }
-            else {
                 int newsize = size;
-                if (file[cur].count(res[ressize-1]) == 0) {
-                    if (child_folder[cur].count(res[ressize-1]) != 0) {
-                        rollback(newfolder_1, newfolder_2); 
-                        cout << 'N' << endl;
-                        continue;
-                    }
-                    else size -= file[cur][res[ressize-1]];
-                } else size -= file[cur][res[ressize-1]];
-                if (size < min(minichildspace, minitotalpace)) {
-                    file[cur][res[ressize-1]] = newsize;
-                    cout << "Y" << endl;
-                    changesize(res, size);
-                } else {
+            if (file[cur].count(res[ressize-1]) == 0) {
+                if (child_folder[cur].count(res[ressize-1]) != 0) {
                     rollback(newfolder_1, newfolder_2); 
                     cout << 'N' << endl;
+                    continue;
                 }
+            } else size -= file[cur][res[ressize-1]];
+            if (size < min(minichildspace, minitotalpace)) {
+                file[cur][res[ressize-1]] = newsize;
+                cout << "Y" << endl;
+                changesize(res, size);
+            } else {
+                rollback(newfolder_1, newfolder_2); 
+                cout << 'N' << endl;
             }
         } else if (c == 'R') {
             cin >> path;
@@ -140,6 +138,7 @@ int main() {
             if (file[cur].count(res[ressize-1]) != 0) { //存在文件
                 totalsize = file[cur][res[ressize-1]];
                 file[cur].erase(res[ressize-1]);
+                folders[cur].child_size -= totalsize;
             }
             else if (child_folder[cur].count(res[ressize-1]) != 0) { //存在文件夹
                 int newcur = child_folder[cur][res[ressize-1]];

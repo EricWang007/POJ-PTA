@@ -25,7 +25,7 @@ int main() {
             if (cnt[i]+(j-cnt[i])/k > n) break;
             if (cnt[i] + (j-cnt[i])/k == n) { //可以换了
                 ans += j * dp[i][j];
-                continue;
+                continue; //不能用break
             }
             for (int k = 1; k <= n; k++) { //新抽一张牌 
                 if (i & (1 << (k-1))) dp[i][j+1] += dp[i][j]*p[k]; // 抽到过
